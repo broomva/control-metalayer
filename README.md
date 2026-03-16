@@ -5,7 +5,7 @@ skills.sh-compatible skill for initializing repositories with a control-system m
 ## Install
 
 ```bash
-npx skills add broomva/agent-control-metalayer-skill --skill control-metalayer-loop
+npx skills add broomva/control-metalayer --skill control-metalayer-loop
 ```
 
 ## Main Wizard
