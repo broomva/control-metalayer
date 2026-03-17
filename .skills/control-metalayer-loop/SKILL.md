@@ -117,3 +117,8 @@ Treat audit failures as blocking until corrected.
 - Prefer wrappers and policy files over ad-hoc command execution.
 - Make every major behavior observable and auditable.
 - Keep human escalation rules explicit and easy to trigger.
+
+## Related Skills
+
+- `agent-consciousness` — Architectural synthesis of how the control metalayer, knowledge graph, and conversation logs form a persistent consciousness for agents.
+- `knowledge-graph-memory` — Bridge script that transforms Claude Code conversation logs into Obsidian-compatible session documents, creating episodic memory for the knowledge graph.
