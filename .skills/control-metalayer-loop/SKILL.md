@@ -118,7 +118,13 @@ Treat audit failures as blocking until corrected.
 - Make every major behavior observable and auditable.
 - Keep human escalation rules explicit and easy to trigger.
 
+## Broomva Stack Position
+
+**Layer 1 (Foundation)** — part of the [24-skill Broomva Stack](https://github.com/broomva/bstack).
+
 ## Related Skills
 
-- `agent-consciousness` — Architectural synthesis of how the control metalayer, knowledge graph, and conversation logs form a persistent consciousness for agents.
-- `knowledge-graph-memory` — Bridge script that transforms Claude Code conversation logs into Obsidian-compatible session documents, creating episodic memory for the knowledge graph.
+- `agent-consciousness` (L2) — Architectural synthesis of how the control metalayer, knowledge graph, and conversation logs form a persistent consciousness for agents.
+- `knowledge-graph-memory` (L2) — Bridge script that transforms Claude Code conversation logs into Obsidian-compatible session documents, creating episodic memory for the knowledge graph.
+- `drift-check` (L7) — Reads control-metalayer setpoints to detect priority misalignment against actual effort.
+- `harness-engineering-playbook` (L1) — Agent-first workflow that builds on control primitives for deterministic harness commands.

@@ -1,5 +1,7 @@
 # Agent Consciousness & Control Metalayer
 
+> Layers 1-2 of the [Broomva Stack](https://github.com/broomva/bstack) — 24 skills across 7 layers.
+
 Skills for persistent consciousness in autonomous AI agent development. Three complementary skills that give stateless agent sessions the accumulated understanding of all prior sessions.
 
 ## Skills

@@ -5,6 +5,8 @@ description: Persistent consciousness architecture for autonomous AI agent devel
 
 # Agent Consciousness Architecture
 
+> **Broomva Stack Layer 2** (Memory & Consciousness) — part of the [24-skill Broomva Stack](https://github.com/broomva/bstack).
+
 Implement a persistent consciousness layer for AI coding agents that gives every new stateless session the accumulated understanding of all prior sessions.
 
 ## Core Concept
@@ -124,3 +126,12 @@ Check if prior sessions already solved this problem.
 1. Run `make smoke` (validate gates)
 2. Update docs per Doc-Update-on-Push policy
 3. Pre-push hook auto-regenerates conversation history
+
+## Stack Integration
+
+This skill is consumed by higher layers:
+
+- **Strategy (L7)**: `decision-log` and `weekly-review` persist outputs through the consciousness substrate
+- **Strategy (L7)**: `drift-check` reads control-metalayer setpoints to detect misalignment
+- **Strategy (L7)**: `braindump` and `morning-briefing` read/write vault via knowledge-graph-memory
+- **Orchestration (L3)**: `symphony` and `autoany` inherit session context through the consciousness stack
