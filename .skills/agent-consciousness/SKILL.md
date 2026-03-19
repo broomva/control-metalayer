@@ -85,6 +85,7 @@ From most ephemeral to most permanent:
 |-------|----------|----------|------------------|
 | Working memory | Single session | Context window | Every message |
 | Auto-memory | Cross-session | `~/.claude/.../memory/` | On learning events |
+| User vault | Cross-session | Lago `/v1/memory/*` | On store/ingest |
 | Conversation logs | Permanent | `docs/conversations/` | Pre-push hook |
 | Knowledge graph | Permanent | `docs/` | On architectural changes |
 | Policy rules | Permanent | `.control/policy.yaml` | On new failure modes |
@@ -127,6 +128,17 @@ Check if prior sessions already solved this problem.
 2. Update docs per Doc-Update-on-Push policy
 3. Pre-push hook auto-regenerates conversation history
 
+## Lago Context Engine
+
+The consciousness architecture now has a **server-side persistence backend** via Lago:
+
+- **Dual-vault search**: broomva.tech chat agent searches both server vault (`VAULT_PATH`) and user vault (`LAGO_URL`) with merged, ranked results
+- **Per-user memory**: Each authenticated user gets a Lago session for persistent `.md` storage with server-side knowledge indexing
+- **lago-knowledge**: Frontmatter parsing, wikilink extraction, scored search, BFS graph traversal — the same operations the local vault reader does, but server-side
+- **JWT auth**: Shared-secret validation with broomva.tech `AUTH_SECRET` — one OAuth login, both CLIs work
+
+This aligns with the planned **Mnemo** AOS primitive (knowledge store) and provides the foundation for persistent agent memory.
+
 ## Stack Integration
 
 This skill is consumed by higher layers:
@@ -135,3 +147,4 @@ This skill is consumed by higher layers:
 - **Strategy (L7)**: `drift-check` reads control-metalayer setpoints to detect misalignment
 - **Strategy (L7)**: `braindump` and `morning-briefing` read/write vault via knowledge-graph-memory
 - **Orchestration (L3)**: `symphony` and `autoany` inherit session context through the consciousness stack
+- **Persistence (L0)**: Lago context engine provides the durable substrate for user vaults and knowledge graph operations
