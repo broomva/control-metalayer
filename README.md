@@ -1,68 +1,25 @@
-# Agent Consciousness & Control Metalayer
+# control-metalayer (DEPRECATED — consolidated into the broomva/skills monorepo)
 
-> Layers 1-2 of the [Broomva Stack](https://github.com/broomva/bstack) — 24 skills across 7 layers.
+> **Status:** 6-month deprecation window (until 2026-12-27). The control-metalayer
+> sub-skills have been **consolidated** into a single skill, `agentic-control-kernel`,
+> in the [broomva/skills](https://github.com/broomva/skills) monorepo (BRO-1561 / BRO-1570).
 
-Skills for persistent consciousness in autonomous AI agent development. Three complementary skills that give stateless agent sessions the accumulated understanding of all prior sessions.
-
-## Skills
-
-### `control-metalayer-loop` — Behavioral Governance
-
-Control-system metalayer with setpoints, sensors, gates, feedback loops, and escalation budgets.
+## New install
 
 ```bash
-npx skills add broomva/control-metalayer --skill control-metalayer-loop
+npx skills add broomva/skills --skill agentic-control-kernel
 ```
 
-### `agent-consciousness` — Architecture & Philosophy
+`agentic-control-kernel` is the unified successor of the three skills this repo used to
+ship separately. Their surfaces were merged (control primitives + episodic memory +
+consciousness stack) into one kernel rather than three overlapping installs:
 
-The synthesis: how control metalayer + knowledge graph + conversation logs form a self-evolving persistent consciousness.
+| Former standalone sub-skill | Now part of |
+|---|---|
+| `control-metalayer-loop` (setpoints, sensors, shields, policy gates) | `agentic-control-kernel` |
+| `agent-consciousness` (governance + knowledge-graph + episodic-memory architecture) | `agentic-control-kernel` |
+| `knowledge-graph-memory` (conversation-log → Obsidian bridge) | `agentic-control-kernel` |
 
-```bash
-npx skills add broomva/control-metalayer --skill agent-consciousness
-```
-
-### `knowledge-graph-memory` — Episodic Memory Bridge
-
-Bridges Claude Code conversation logs (.entire/ + transcripts) to an Obsidian knowledge graph for searchable session history.
-
-```bash
-npx skills add broomva/control-metalayer --skill knowledge-graph-memory
-```
-
-## The Consciousness Stack
-
-```
-Working memory → Auto-memory → Conversation logs → Knowledge graph → Policy rules → Invariants
-(ephemeral)                                                                        (permanent)
-```
-
-| Substrate | Skill | Purpose |
-|-----------|-------|---------|
-| Control Metalayer | `control-metalayer-loop` | How to behave (gates, policies, setpoints) |
-| Knowledge Graph | `agent-consciousness` | What is known (Obsidian vault, wikilinks, MOCs) |
-| Conversation Logs | `knowledge-graph-memory` | What was done (session records, tool traces) |
-
-## Quick Start
-
-```bash
-# 1. Initialize control metalayer
-python3 .agents/skills/control-metalayer-loop/scripts/control_wizard.py init . --profile autonomous
-
-# 2. Generate conversation history
-python3 scripts/conversation-history.py --force
-
-# 3. Audit
-python3 .agents/skills/control-metalayer-loop/scripts/control_wizard.py audit . --strict
-```
-
-## Self-Evolution
-
-The system gets smarter the more it's used:
-
-1. Agent encounters a failure mode not covered by existing policy
-2. Agent fixes the immediate issue
-3. Pattern is captured in conversation log (`docs/conversations/`)
-4. If recurring, crystallizes into architecture doc (`docs/architecture/`)
-5. If enforceable, becomes a gate in `.control/policy.yaml`
-6. Future agents are governed by this rule automatically
+The old `npx skills add broomva/control-metalayer` continues to resolve through the
+deprecation window, but new installs should use the command above (the monorepo layout
+also fixes the remote root-install script-drop hazard, vercel-labs/skills#1523).
